@@ -47,6 +47,7 @@ fn main() -> anyhow::Result<()> {
     let drive_config = if let Some(domain_id) = opt.domain_id {
         DriveConfig {
             api_base_url: format!("https://{}.api.aliyunpds.com", domain_id),
+            api_base_url_v3: format!("https://{}.api.aliyunpds.com", domain_id),
             refresh_token_url: format!("https://{}.auth.aliyunpds.com/v2/account/token", domain_id),
             workdir: opt.workdir,
             app_id: Some("BasicUI".to_string()),
@@ -54,6 +55,7 @@ fn main() -> anyhow::Result<()> {
     } else {
         DriveConfig {
             api_base_url: "https://api.aliyundrive.com".to_string(),
+            api_base_url_v3: "https://api.aliyundrive.com/adrive/v3".to_string(),
             refresh_token_url: "https://api.aliyundrive.com/token/refresh".to_string(),
             workdir: opt.workdir,
             app_id: None,

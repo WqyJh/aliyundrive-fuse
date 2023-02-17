@@ -387,8 +387,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-            messense/aliyundrive-fuse
-            ghcr.io/messense/aliyundrive-fuse
+            wqyjh/aliyundrive-fuse
           tags: |
             type=schedule
             type=ref,event=branch
@@ -428,7 +427,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-          repository: messense/aliyundrive-fuse
+          repository: wqyjh/aliyundrive-fuse
 
 
   release:

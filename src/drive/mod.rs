@@ -28,6 +28,7 @@ const UA: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/53
 #[derive(Debug, Clone)]
 pub struct DriveConfig {
     pub api_base_url: String,
+    pub api_base_url_v3: String,
     pub refresh_token_url: String,
     pub workdir: Option<PathBuf>,
     pub app_id: Option<String>,
@@ -319,7 +320,7 @@ impl AliyunDrive {
             order_direction: "DESC",
             marker,
         };
-        self.request(format!("{}/v2/file/list", self.config.api_base_url), &req)
+        self.request(format!("{}/file/list", self.config.api_base_url_v3), &req)
             .and_then(|res| res.context("expect response"))
     }
 
